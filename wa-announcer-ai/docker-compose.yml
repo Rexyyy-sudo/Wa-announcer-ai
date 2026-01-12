@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  wa-announcer:
+    build: .
+    container_name: wa-announcer
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./sessions:/app/sessions
+      - ./data:/app/data
+      - ./logs:/app/logs
+    environment:
+      - NODE_ENV=production
+      - API_PORT=3000
+      - API_HOST=0.0.0.0
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - JWT_SECRET=${JWT_SECRET}
+      - ENCRYPTION_KEY=${ENCRYPTION_KEY}
+      - API_KEY=${API_KEY}
+      - DB_PATH=/app/data/announcer.db
+      - LOG_LEVEL=info
+    networks:
+      - wa-network
+
+  nginx:
+    image: nginx:alpine
+    container_name: wa-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./certs:/etc/letsencrypt:ro
+      - ./web/dist:/app/web:ro
+    depends_on:
+      - wa-announcer
+    networks:
+      - wa-network
+
+networks:
+  wa-network:
+    driver: bridge
