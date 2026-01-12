@@ -1,0 +1,79 @@
+🚀 PUSH KE GITHUB - LANGKAH DEMI LANGKAH
+
+STEP 1: Buat Repository Baru di GitHub
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Buka https://github.com/new
+2. Username: Rexyyy-sudo (sudah login?)
+3. Repository name: wa-announcer-ai
+4. Description: WhatsApp AI Announcer Bot
+5. Pilih: PUBLIC (penting untuk Railway!)
+6. JANGAN centang "Initialize this repository"
+7. Click "Create repository"
+
+STEP 2: Copy Perintah dari GitHub
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Setelah create, GitHub akan kasih:
+"…or push an existing repository from the command line"
+
+Akan ada 2-3 baris perintah, COPY-nya.
+
+Biasanya mirip:
+  git remote add origin https://github.com/Rexyyy-sudo/wa-announcer-ai.git
+  git branch -M main
+  git push -u origin main
+
+STEP 3: Paste & Jalankan
+━━━━━━━━━━━━━━━━━━━━━━
+1. Buka Git Bash di folder project:
+   
+   di VSCode: View → Terminal (Ctrl+`)
+   atau buka folder wa-announcer-ai dengan Git Bash
+
+2. Paste perintah dari GitHub:
+   git remote add origin https://github.com/Rexyyy-sudo/wa-announcer-ai.git
+   git branch -M main
+   git push -u origin main
+
+3. Tunggu... akan minta GitHub login:
+   - Browser buka
+   - Login dengan GitHub account
+   - Authorize GitHub credential
+
+4. Tunggu sampai selesai (beberapa menit untuk 51 files)
+
+STEP 4: Verify
+━━━━━━━━━━━━━
+1. Buka https://github.com/Rexyyy-sudo/wa-announcer-ai
+2. Lihat 51 files sudah terupload?
+3. Klik "commits" → lihat "Initial commit"
+
+SELESAI! 🎉
+
+Sekarang siap untuk Railway deployment!
+
+
+💡 JIKA ADA MASALAH
+
+Masalah: "fatal: pathspec 'origin' does not match any files"
+Solusi: 
+  git remote -v
+  (lihat apa ada origin?)
+  
+  Kalau tidak ada:
+  git remote add origin https://github.com/Rexyyy-sudo/wa-announcer-ai.git
+
+Masalah: "Authentication failed"
+Solusi:
+  1. Settings GitHub → Developer settings → Personal access tokens → Tokens (classic)
+  2. Generate new token
+  3. Scope: repo, admin:repo_hook
+  4. Copy token
+  5. Di terminal, GitHub minta password, paste token (bukan password)
+
+Masalah: "Permission denied (publickey)"
+Solusi:
+  Gunakan HTTPS URL, bukan SSH:
+  git remote add origin https://github.com/Rexyyy-sudo/wa-announcer-ai.git
+  (bukan: git@github.com:Rexyyy-sudo/wa-announcer-ai.git)
+
+HUBUNGI jika masih ada error! 😊

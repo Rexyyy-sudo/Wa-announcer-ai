@@ -1,0 +1,30 @@
+app.json adalah file konfigurasi Railway yang mendefinisikan variabel environment yang diperlukan untuk deploy.
+
+Ini file auto-generated oleh Railway saat pertama kali deploy, tapi bisa dibuat manual untuk auto-prompt variables.
+
+Jika ingin membuat manual, struktur:
+{
+  "name": "wa-announcer-ai",
+  "description": "WhatsApp AI Announcer Bot",
+  "repository": "https://github.com/YOUR_USERNAME/wa-announcer-ai",
+  "env": {
+    "NODE_ENV": {
+      "description": "Application environment",
+      "value": "production"
+    },
+    "OPENAI_API_KEY": {
+      "description": "OpenAI API key from platform.openai.com",
+      "required": true
+    },
+    "JWT_SECRET": {
+      "description": "Random secret for JWT tokens",
+      "required": true
+    },
+    "ENCRYPTION_KEY": {
+      "description": "Random key for encryption",
+      "required": true
+    }
+  }
+}
+
+Untuk sekarang, Railway.json sudah cukup.
