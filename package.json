@@ -1,0 +1,8 @@
+{
+    "name": "wa-announcer-ai-root",
+    "version": "1.0.0",
+    "description": "WhatsApp AI Announcer Bot",
+    "scripts": {
+        "start": "cd wa-announcer-ai && npm start"
+    }
+}
